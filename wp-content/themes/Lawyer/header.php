@@ -17,20 +17,21 @@ and open the template in the editor.
         <!--ios compatibility-->
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-title" content="Lawyer">
-        <link rel="apple-touch-icon" href="apple-icon-144x144.png">
+        <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/Frontend/apple-icon-144x144.png">
 
 
         <!--Android compatibility-->
 
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="application-name" content="Lawyer">
-        <link rel="icon" type="image/png" href="android-icon-192x192.png">
+        <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/Frontend/android-icon-192x192.png">
 
 
-        <!--CSS FILES-->
-        <link href="css/owl.carousel.css" rel="stylesheet" type="text/css"/>
-        <link href="css/owl.theme.default.css" rel="stylesheet" type="text/css"/>
-        <link href="css/theme.css" rel="stylesheet" type="text/css"/>
+        <!--CSS FILES -moved to function php + added style css from Lawyer in function file
+        <link href="<?php /*echo get_template_directory_uri(); ?>/Frontend/css/owl.carousel.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo get_template_directory_uri(); ?>/Frontend/css/owl.theme.default.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo get_template_directory_uri(); */?>/Frontend/css/theme.css" rel="stylesheet" type="text/css"/>
+        -->
 
 <?php
 // include default wordpress style
@@ -45,7 +46,7 @@ wp_head();
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light ">
                     <a class="navbar-brand" href="index.html">
-                        <img src="img/logo.png" alt=""/>
+                        <img src="<?php echo get_template_directory_uri(); ?>/Frontend/img/logo.png" alt=""/>
                     </a>
                     <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <span></span>

@@ -14,17 +14,17 @@
 
         
         
-
+<!--moved to function php
         <script src="js/jquery.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
 
-        <!--font awesome icons-->
+        <!--font awesome icons
         <script src="https://kit.fontawesome.com/85bd05dd45.js"></script>
         
         
         <script src="js/owl.carousel.min.js" type="text/javascript"></script>
         <script src="js/main.js" type="text/javascript"></script>
-        
+        -->
         <?php
         // include default wordpress js files
         wp_footer();
