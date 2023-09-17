@@ -4,26 +4,31 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html <?php bloginfo('language'); ?>>
     <head>
-        <title>Lawyer</title>
+        <title>
+            <?php 
+            bloginfo('name'); 
+            wp_title(' | ', true, 'left');
+            ?>
+        </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Vladan Dzulovic">
+        <meta name="author" content="Branko Teodorovic>
         <meta name="description" content="Lawyer is a specialized commercial law firm based in Belgrade, Serbia, firmly committed to providing advice at the highest level and achieving lasting results for our clients.">
         <meta name="keywords" content="Lawyer, law, Belgrade, company, clients">
 
 
         <!--ios compatibility-->
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-title" content="Lawyer">
+        <meta name="apple-mobile-web-app-title" content="<?php bloginfo('name'); ?>">
         <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/Frontend/apple-icon-144x144.png">
 
 
         <!--Android compatibility-->
 
         <meta name="mobile-web-app-capable" content="yes">
-        <meta name="application-name" content="Lawyer">
+        <meta name="application-name" content="<?php bloginfo('name'); ?>">
         <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/Frontend/android-icon-192x192.png">
 
 
@@ -39,7 +44,8 @@ wp_head();
 ?>
 
     </head>
-    <body>
+    <body <?php body_class()?>
+>
 
 
         <header class="fixed-top bg-white py-2 py-xl-4">
