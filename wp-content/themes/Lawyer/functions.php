@@ -26,8 +26,31 @@ function lawyer_scripts (){
 add_action('wp_enqueue_scripts', 'lawyer_scripts');
 
 function lawyer_support (){
+    
+    //titlr support
     add_theme_support( 'title-tag' );
+    
+    //logo support
+    add_theme_support( 'custom-logo', array (
+                'height'               => 28,
+		'width'                => 88,
+		'flex-height'          => false,
+		'flex-width'           => false
+		/*'header-text'          => array( 'site-title', 'site-description' ),
+		'unlink-homepage-logo' => true, */
+         
+    ));
+    
+    //menu support
+    register_nav_menus(
+    array(
+      'header-menu' => __( 'Header Menu' ),
+      'social-menu' => __( 'Social Menu' )
+     )
+   );
+ 
 }
     
 
 add_action('after_setup_theme', 'lawyer_support');
+add_action('init', 'lawyer_support');

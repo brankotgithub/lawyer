@@ -51,9 +51,19 @@ wp_head();
         <header class="fixed-top bg-white py-2 py-xl-4">
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light ">
-                    <a class="navbar-brand" href="index.html">
+                    <?php 
+                    if (has_custom_logo()){
+                    the_custom_logo();}
+                        else{?>
+                             <a class="navbar-brand" href="index.html">
                         <img src="<?php echo get_template_directory_uri(); ?>/Frontend/img/logo.png" alt=""/>
                     </a>
+                    <?php
+                        } 
+                    ?>
+                    
+                    
+                   
                     <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <span></span>
                         <span></span>
@@ -61,6 +71,112 @@ wp_head();
                     </button>
 
                     <div class="collapse navbar-collapse" id="main-menu">
+                        
+                        <?php 
+                            /* koristi se kada nemamo dobijenee menije sa definisanim klasama 
+                             * i  mi tada pravimo css klase
+                           wp_nav_menu(array(
+                                'menu_location' => 'header-menu',
+                                'menu_class' => 'navbar-nav ml-auto',
+                                'container_class' => '',
+                               
+                               
+                           ));
+                        */
+                        
+                        ?>
+                        <?php 
+                            
+                            $menuLocation =get_nav_menu_locations();
+                            //var_dump($menuLocation);
+                            $headerManuID =$menuLocation['header-menu'];
+                            $topMenuItems =wp_get_nav_menu_items($headerManuID);
+                            /*list of menu items parametars - searching for ID, perents ID.....
+                             * echo '<pre>';
+                            var_dump ($topMenuItems);
+                            echo '</pre>';
+                             *
+                             */     
+                            
+                            if ($topMenuItems) {?>
+                                
+                                 <ul class="navbar-nav ml-auto">
+                                    
+                                     <?php                                     
+                                        foreach ($topMenuItems as $topMenuItem) {
+                                            
+                                            //active class
+                                                $activeClass = '';
+                                                $activeClassSubMenu = '';
+                                                if ($topMenuItem->url == get_permalink()) {
+                                                    $activeClass = 'active';
+                                                    
+                                                }
+                                            
+                                            
+                                            //top level menu
+                                            
+                                            if($topMenuItem->menu_item_parent==0) {
+                                                
+                                                //start second level menu 
+                                                $topItemId = $topMenuItem->ID;
+                                                $subMenuItems = array();
+                                                    
+                                                    foreach ($topMenuItems as $subMenuItem) {
+                                                        
+                                                        //active sub menu class
+                                                                                    
+                                                                                        if ($subMenuItem->url == get_permalink()) {
+                                                                                           
+                                                                                        $activeClassSubMenu = 'active';
+                                                                                    } 
+                                                                            
+                                                        
+                                                        //insert item in subMenu
+                                                            if ($subMenuItem->menu_item_parent == $topItemId ) {
+                                                                $subMenuItems[] = $subMenuItem;
+                                                            }
+                                                        
+                                                    }
+                                                
+                                                
+                                                ?>
+                                            
+                                                <li class="nav-item ">
+                                                    <a class="nav-link  <?php echo $activeClass; ?>"  href="<?php echo $topMenuItem->url?>"> <?php echo $topMenuItem->title?> </a>
+                                                
+                                                    <?php
+                                                               if (!empty($subMenuItems)) {?>
+                                                                    
+                                                                    <ul  >
+                                                                        <?php
+                                                                              foreach ($subMenuItems as $subItem) {
+                                                                                  
+                                                            
+                                                                                  ?>
+                                                                                                                                
+                                                                        <li class="nav-item ">
+                                                                            
+                                                                            <a class="nav-link <?php echo $activeClassSubMenu?>"  href="<?php echo $subItem->url?>"> <?php echo $subItem->title?> </a>
+                                                                        </li>                                                   
+                                                                        
+                                                                        
+                                                                      
+                                                                    </ul>
+                                                             <?php  }
+                                                    
+                                                    ?>
+                                                
+                                                </li>
+                                    <?php
+                                    }}
+                                
+                            }}
+                            ?>
+                        
+                        
+                        
+                        <!--
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item ">
                                 <a class="nav-link" href="services.html">Services <span class="sr-only">(current)</span></a>
@@ -79,7 +195,7 @@ wp_head();
                             </li>
                             
                         </ul>
-                        
+                        -->
                     </div>
                 </nav>
             </div><!--.container end-->
