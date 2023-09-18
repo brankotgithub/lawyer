@@ -55,7 +55,7 @@ wp_head();
                     if (has_custom_logo()){
                     the_custom_logo();}
                         else{?>
-                             <a class="navbar-brand" href="index.html">
+                             <a class="navbar-brand" href="<?php echo home_url();?>">
                         <img src="<?php echo get_template_directory_uri(); ?>/Frontend/img/logo.png" alt=""/>
                     </a>
                     <?php
