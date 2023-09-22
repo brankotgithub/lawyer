@@ -41,6 +41,12 @@ function lawyer_support (){
          
     ));
     
+    //featured picture dupport
+    add_theme_support( 'post-thumbnails' );
+    
+    //add image suport
+    add_image_size( 'news_list', 463, 307, true );
+    
     //menu support
     register_nav_menus(
     array(
