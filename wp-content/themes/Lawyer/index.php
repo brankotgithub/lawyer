@@ -12,6 +12,7 @@ get_header();
             <div class="container">
                 <?php while (have_posts()) {
                     the_post();
+                   
                     ?>
                     <article class="news-item mb-5 animation" data-animation="slide-top">
                         <div class="row justify-content-sm-between">
