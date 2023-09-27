@@ -46,6 +46,8 @@ function lawyer_support (){
     
     //add image suport
     add_image_size( 'news_list', 463, 307, true );
+    add_image_size( 'team_list', 273, 355, true );
+    add_image_size( 'single_team', 558, 725, true );
     
     //menu support
     register_nav_menus(
