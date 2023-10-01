@@ -13,14 +13,4 @@ get_header();
     ?>
 
 
-    <?php
-// includ info section
-    get_template_part('/template-parts/info-section');
-    ?>
-
-</main><!--main end-->
-</main>
-
-<?php
-get_footer();
-?>
+   

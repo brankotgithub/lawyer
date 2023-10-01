@@ -62,3 +62,29 @@ function lawyer_support (){
 
 add_action('after_setup_theme', 'lawyer_support');
 add_action('init', 'lawyer_support');
+
+
+function lawyer_create_post_type(){// function insted to install plug in Custom post type UI
+    register_post_type('our_services', array(
+        'labels'=> array(
+            'name'=> 'Services','singular_name'=>'Service','plural_name'=> 'Services','all_items'=> 'All Services',
+            'add_new'=> 'Add New Services',
+            'add_new_item'=> 'Add New Services Item',
+            'new_item'=> 'New Services',
+            'edit'=> 'Edit',
+            'edit_item'=> 'Edit Service Item',
+            'view'=> 'View Service',
+            'view_item'=> 'View Service Item',
+            'featured_image'=> 'Featured image for this Service'
+        ),
+        'public'=>true,
+        'hierarchical'=>false,
+        'show_in_menu'=>true,
+        'menu_icon'=>'dashicons-admin-generic',
+        'menu_position'=>17,
+        'supports'=> array('title','thumbnail','editor')
+    ));
+    
+    
+}
+add_action('init', 'lawyer_create_post_type');
