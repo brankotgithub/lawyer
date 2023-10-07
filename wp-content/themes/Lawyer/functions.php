@@ -88,3 +88,6 @@ function lawyer_create_post_type(){// function insted to install plug in Custom 
     
 }
 add_action('init', 'lawyer_create_post_type');
+
+//code for creating - calling options page
+require get_template_directory() . '/inc/options.php';
