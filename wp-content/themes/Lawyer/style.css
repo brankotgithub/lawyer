@@ -18,3 +18,36 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .logged-in header {
     margin-top: 32px;
 }
+
+div.wpcf7-response-output {
+    color: red; /* Set the text color to red */
+}
+.error-page h1{
+    font-size:10rem;
+    font-weight:bold;
+}
+.error-page p{
+    font-size:3rem;
+    line-heigh:3,5rem;
+    font-weight:500;
+    margin-bottom: 20px;
+}
+
+@media(min-width:768px){
+    .error-page {
+        padding: 5rem 0 !important
+}
+    .error-page h1{
+    font-size:15rem;
+    
+}
+    .error-page p{
+    
+    margin-bottom: 50px;
+}
+}
+
+@media(min-width:1200px){
+    .error-page {
+        padding: 14rem 0 !important
+}}
