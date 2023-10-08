@@ -49,21 +49,13 @@ get_header();
 
 
             <?php
+            get_template_part('/template-parts/pagination');
         endwhile;
     endif;
     ?>
 
 
-
-
 </main><!--main end-->
-
-<?php
-// includ info section
-get_template_part('/template-parts/info-section');
-?>
-
-
 
 <?php
 get_footer();

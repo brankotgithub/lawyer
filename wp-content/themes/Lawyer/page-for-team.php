@@ -27,7 +27,7 @@ get_header();
 
             <?php
             $arg = array(
-                'post_per_page' => -1,
+                'posts_per_page' => -1,
                 'post_type' => 'team_members',
                 'order' => 'ASC',
                 'orderby' => 'title' // It should be 'orderby' instead of 'orderBY'

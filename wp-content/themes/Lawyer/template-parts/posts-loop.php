@@ -38,11 +38,33 @@ get_header();
                     </article><!--.news-item end-->
                     <?php }
                 ?>
-
-
-    <?php ?>
             </div><!--.container end-->
-        </section><!--.news-section end-->       
+        </section><!--.news-section end-->   
+        <section class="news-pagination mb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <?php previous_posts_link( 'Newer posts' ); ?>
+                    </div>
+                    <div class="col-6 text-right">
+                        <?php next_posts_link( 'Older posts' ); ?>
+                    </div>
+                </div>
+                
+            </div>         
+        </section>   
+        <section class="news-pagnation-full mb-5">
+            <div class="container">
+                <?php the_posts_pagination(array(
+                        'mid_size'  => 2,
+                        'prev_text' => '&lang;',
+                        'next_text' => '&rang;'
+                    
+                )); ?>
+            </div>
+            
+        </section>
+    
 <?php } else { ?>
         <section class="news-section">
             <div class="container">

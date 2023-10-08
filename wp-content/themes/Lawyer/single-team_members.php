@@ -35,6 +35,9 @@ get_header();
                         </div>
                     </div>
                     <?php
+                     
+                        get_template_part('/template-parts/pagination');
+        
                 endwhile;
             endif;
             ?>
@@ -44,13 +47,6 @@ get_header();
 
 
 </main><!--main end-->
-
-<?php
-// includ info section
-get_template_part('/template-parts/info-section');
-?>
-
-
 
 <?php
 get_footer();
