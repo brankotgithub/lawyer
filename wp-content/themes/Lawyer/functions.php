@@ -89,5 +89,61 @@ function lawyer_create_post_type(){// function insted to install plug in Custom 
 }
 add_action('init', 'lawyer_create_post_type');
 
+function lawyer_init_sidebar(){
+    
+    register_sidebar(
+            array(
+			'id'            => 'sidebar_1',
+			'name'          => __( 'Primary Sidebar' ),
+			'description'   => __( 'Page Sidebar' ),
+			'before_widget' => '<div id="%1$s" class="widget mb-4 p-4 bg-light %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title mb-5">',
+			'after_title'   => '</h3>',
+		)
+            
+    );
+    
+    register_sidebar(
+            array(
+			'id'            => 'footer_1',
+			'name'          => __( 'Footer Sidebar 1' ),
+			'description'   => __( 'Footer Sidebar 1' ),
+			'before_widget' => '<div id="%1$s" class="widget mb-4 p-4 bg-light %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title mb-5">',
+			'after_title'   => '</h3>',
+		)
+            
+    );
+    
+    register_sidebar(
+            array(
+			'id'            => 'footer_2',
+			'name'          => __( 'Footer Sidebar 2' ),
+			'description'   => __( 'Footer Sidebar 2' ),
+			'before_widget' => '<div id="%1$s" class="widget mb-4 p-4 bg-light %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title mb-5">',
+			'after_title'   => '</h3>',
+		)
+            
+    );
+    
+    register_sidebar(
+            array(
+			'id'            => 'footer_3',
+			'name'          => __( 'Footer Sidebar 3' ),
+			'description'   => __( 'Footer Sidebar 3' ),
+			'before_widget' => '<div id="%1$s" class="widget mb-4 p-4 bg-light %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title mb-5">',
+			'after_title'   => '</h3>',
+		)
+            
+    );
+}
+add_action('widgets_init', 'lawyer_init_sidebar');
+
 //code for creating - calling options page
 require get_template_directory() . '/inc/options.php';
